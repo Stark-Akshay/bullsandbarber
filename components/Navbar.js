@@ -23,7 +23,7 @@ const Navbar = () =>{
         </div>
 
 
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className={homes.bottom}>
       <AppBar position="static"
         sx={
             {

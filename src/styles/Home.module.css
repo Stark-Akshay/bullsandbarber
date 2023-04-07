@@ -24,6 +24,9 @@
   display: none;
 }
 
+.bottom{
+  display: none;
+}
 /*install button*/
 
 .flexo{
@@ -40,6 +43,9 @@
   }
   .headertext{
     margin-top: 5%;
+  }
+  .bottom{
+    display: block;
   }
   .nav {
     display: block;

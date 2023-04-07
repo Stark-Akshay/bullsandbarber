@@ -31,19 +31,7 @@
   justify-content: center;
 }
 
-.installbutton{
-  background-color: #6a2153;
-  border: none;
-  font-size: larger;
-  font-family:'Playball', cursive;
-  color: #fff;
-  padding: 1%;
-  border-radius: 50px;
-  width: 15rem;
-  -webkit-box-shadow: 0px 13px 16px -7px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 13px 16px -7px rgba(0,0,0,0.75);
-  box-shadow: 0px 13px 16px -7px rgba(0,0,0,0.75);
-}
+
 
 /*mobile query*/
 @media only screen and (max-width: 767px) {
@@ -51,7 +39,7 @@
     padding: 3%;
   }
   .headertext{
-    margin-top: 25%;
+    margin-top: 5%;
   }
   .nav {
     display: block;
@@ -59,7 +47,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #6a2153;
+    background-color: #757de8;
     border-top: 1px solid #ccc;
   }
   
@@ -91,7 +79,7 @@
   
   .nav ul li a:hover,
   .nav ul li a:focus {
-    color: #272424;
+    color: #3f51b5;
   }
   
   .nav ul li a.active {

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/Home.module.css'
+import { Button } from '@mui/material';
+
 
 const InstallButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -45,7 +47,7 @@ const InstallButton = () => {
     <>
     <div className={styles.flexo}>
     {showButton && (
-        <button onClick={handleInstallClick} className={styles.installbutton}>Download the App</button>
+        <Button variant='contained' onClick={handleInstallClick} className={styles.installbutton}>Download the App</Button>
       )}
     </div>
       

@@ -9,17 +9,17 @@ const BottomNav = () => {
       <ul>
         <li>
         <Link href="/profile">
-            <FaUser />
+            <FaUser size={25}/>
           </Link>
         </li>
         <li>
           <Link href="/">
-            <FaHome />
+            <FaHome size={25}/>
           </Link>
         </li>
         <li>
         <Link href="/about">
-            <FaInfo />
+            <FaInfo size={25}/>
         </Link>
         </li>
   </ul>

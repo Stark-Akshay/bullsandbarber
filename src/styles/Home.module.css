@@ -40,6 +40,7 @@
 @media only screen and (max-width: 767px) {
   .installbutton{
     padding: 3%;
+    border-radius: 50px;
   }
   .headertext{
     margin-top: 5%;

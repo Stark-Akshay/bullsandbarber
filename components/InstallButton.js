@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/Home.module.css'
 import { Button } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 
 
 const InstallButton = () => {
@@ -47,7 +48,7 @@ const InstallButton = () => {
     <>
     <div className={styles.flexo}>
     {showButton && (
-        <Button variant='contained' onClick={handleInstallClick} className={styles.installbutton}>Download the App</Button>
+        <Button variant='contained' onClick={handleInstallClick} className={styles.installbutton} startIcon={<DownloadIcon />} sx={{borderRadius: '50px'}}>Download</Button>
       )}
     </div>
       

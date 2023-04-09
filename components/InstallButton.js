@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/Home.module.css'
-import { Button } from '@mui/material';
+import { Button, Card, Typography } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 
 
@@ -51,6 +51,23 @@ const InstallButton = () => {
         <Button variant='contained' onClick={handleInstallClick} className={styles.installbutton} startIcon={<DownloadIcon />} sx={{borderRadius: '50px'}}>Download</Button>
       )}
     </div>
+
+      {showButton && (
+        <Card sx={
+          {
+            bgcolor: '#fff3e2',
+            margin: '20px',
+            
+          }
+        }>
+          <div>
+            <Typography variant='h6'>
+              If you are using an apple device please click the share button below and add to home screen
+            </Typography>
+          </div>
+
+        </Card>
+      )}
       
     </>
   );

@@ -24,10 +24,10 @@ const Navbar = () =>{
 
 
     <Box sx={{ flexGrow: 1 }} className={homes.bottom}>
-      <AppBar position="static"
+      <AppBar position="static" elevation={0}
         sx={
             {
-                backgroundColor: '#757de8'
+                backgroundColor: '#fff'
             }
         }
       >
@@ -35,13 +35,13 @@ const Navbar = () =>{
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color="#3f51b5"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'#3f51b5' }}>
             Bulls and Barber
           </Typography>
         </Toolbar>

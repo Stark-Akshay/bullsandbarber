@@ -52,7 +52,7 @@ const InstallButton = () => {
       )}
     </div>
 
-      {showButton && (
+      {/* {showButton && (
         <Card sx={
           {
             bgcolor: '#fff3e2',
@@ -67,8 +67,7 @@ const InstallButton = () => {
           </div>
 
         </Card>
-      )}
-      
+      )} */}
     </>
   );
 };

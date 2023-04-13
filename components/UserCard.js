@@ -1,10 +1,10 @@
-import { Avatar, Card, Typography, Box } from "@mui/material";
+import { Avatar, Card, Typography, Box, LinearProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import styles from '@/styles/Home.module.css';
 
 const UserCard = () => {
     const [time, setTime] = useState(new Date());
-
+    const points=120;
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -21,15 +21,25 @@ const UserCard = () => {
     greeting = "Good evening";
   }
     return (
-        <Card className={styles.userCard} elevation={5}>
+      <>
+      <Card className={styles.userCard} elevation={5} sx={{
+        
+      }}>
             <Box className={styles.cardDetail}>
-            <Typography variant="h6" className={styles.greetText}>{greeting} John Doe</Typography>
+            <Typography variant="h4" className={styles.greetText}>{greeting} John Doe</Typography>
             <Avatar sx={{
                 backgroundColor:'#b222ea'
             }}>J</Avatar>
-            </Box>
-            
+            </Box>  
+
+            <div className={styles.uCardPoints}>
+              <Typography variant="h6">
+                Your Points: {points}
+              </Typography>
+            </div>
         </Card>
+
+      </>
     )
 }
 

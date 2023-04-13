@@ -34,43 +34,74 @@
   justify-content: center;
 }
 
+
 .userCard{
-  display: none;
+  display: flex;
+  background-image: url("../../public/Images/card_bg.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  flex-direction: column;
+  padding: 2.5%;
+  height: 150px;
+  width: auto;
+  margin: 2rem;
+  border-radius: 15px;
+}
+
+
+
+
+.uCardPoints{
+  color: #fff;
+  display: flex;
+  justify-content: right;
+}
+.cardDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: auto;
+  align-items: center;
+
+}
+
+.greetText{
+  padding: 2%;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.display_onlymob{
+  display: block;
+}
+
+
+/*nav links desktop*/
+.linkButtons{
+  text-decoration: none;
+}
+.linkButtons button{
+  color: #757de8;
+}
+
+.linkButtons button:hover{
+  color: #1d3a4d
+}
+
+.linkButtons button:active{
+  color: #0070f3;
+}
+
+@media only screen and (max-width: 768px) and (orientation:landscape){
+  .display_onlymob{
+    display:none;
+  }
 }
 
 
 /*mobile query*/
-@media only screen and (max-width: 767px) {
-
-
-  .userCard{
-    display: flex;
-    background-image: url("../../public/Images/card_bg.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: top;
-
-    height: 150px;
-    width: auto;
-    margin: 1.5rem;
-    border-radius: 15px;
-  }
-
-  .cardDetail{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 2%;
-
-  }
-
-  .greetText{
-    padding: 2%;
-    color: #fff;
-    font-weight: lighter;
-  }
-
+@media only screen and (max-width: 768px) {
   .installbutton{
     padding-top: 3%;
     padding-bottom: 3%;

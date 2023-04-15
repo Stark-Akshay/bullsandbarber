@@ -1,6 +1,17 @@
 /*home*/
 @import url('https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@500&display=swap');
 
+
+.table{
+    min-width: 650;
+  }
+
+.input{
+ width: 50;
+ margin-right: 10;
+ }
+
+
 .headertext{
     font-family: 'Playball', cursive;
     font-size: 1.5rem;

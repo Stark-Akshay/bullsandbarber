@@ -48,7 +48,7 @@ const InstallButton = () => {
     <>
     <div className={styles.flexo}>
     {showButton && (
-        <Button variant='contained' onClick={handleInstallClick} className={styles.installbutton} startIcon={<DownloadIcon />} sx={{borderRadius: '15px'}}>Download</Button>
+        <Button variant='contained' onClick={handleInstallClick} startIcon={<DownloadIcon />} sx={{mt:3}}>Download the app</Button>
       )}
     </div>
 

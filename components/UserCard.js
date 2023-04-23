@@ -1,14 +1,27 @@
-import { Avatar, Card, Typography, Box, LinearProgress } from "@mui/material";
+import { Avatar, Card, Typography, Box, LinearProgress, IconButton } from "@mui/material";
 import { useState, useEffect } from "react";
 import styles from '@/styles/Home.module.css';
+import { getDocs } from "firebase/firestore";
+import { pointRef } from "../firebase";
+import PointCollect from "./PointCollect";
+import { auth } from "../firebase";
+import { useAuth } from "../Auth";
+
 
 const UserCard = () => {
+  
+    const {currentUser} = useAuth();
     const [time, setTime] = useState(new Date());
-    const points=120;
+
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
+
     return () => clearInterval(timer);
+  
   }, []);
+
+  
+    
 
   const hour = time.getHours();
 
@@ -26,16 +39,12 @@ const UserCard = () => {
         
       }}>
             <Box className={styles.cardDetail}>
-            <Typography variant="h4" className={styles.greetText}>{greeting} John Doe</Typography>
-            <Avatar sx={{
-                backgroundColor:'#b222ea'
-            }}>J</Avatar>
+            <Typography variant="h4" className={styles.greetText}>{greeting} {currentUser.displayName}</Typography>
+            {currentUser.photoURL?<Avatar src={(currentUser.photoURL)} />:<Avatar><Typography>{currentUser.displayName.charAt(0)}</Typography></Avatar>}
             </Box>  
 
             <div className={styles.uCardPoints}>
-              <Typography variant="h6">
-                Your Points: {points}
-              </Typography>
+            <PointCollect />
             </div>
         </Card>
 

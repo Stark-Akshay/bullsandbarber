@@ -3,8 +3,12 @@ import Head from 'next/head'
 import InstallButton from '../../components/InstallButton'
 import HomeFront from '../../components/HomeFront'
 import UserCard from '../../components/UserCard'
+import Login from '../../components/Login'
 
 export default function Home() {
+
+  // return <Login />
+
   return (
     <>
     <Head>
@@ -13,7 +17,7 @@ export default function Home() {
     </Head>
       <div className={styles.container}>
         <UserCard />
-        <InstallButton />
+        {/* <InstallButton /> */}
       </div>
     </>
   )

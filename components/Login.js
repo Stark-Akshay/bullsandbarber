@@ -1,14 +1,14 @@
 import { Button, Grid } from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
 import React from 'react'
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signInWithRedirect } from "firebase/auth";
 import {auth, provider} from '../firebase';
 import InstallButton from "./InstallButton";
 
 const Login = (type, color) => {
 
   const loginWithGoogle = () =>{
-    signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
   }
 
   return (

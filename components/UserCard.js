@@ -40,7 +40,10 @@ const UserCard = () => {
       }}>
             <Box className={styles.cardDetail}>
             <Typography variant="h4" className={styles.greetText}>{greeting} {currentUser.displayName}</Typography>
+            <IconButton onClick={() => auth.signOut()}>
             {currentUser.photoURL?<Avatar src={(currentUser.photoURL)} />:<Avatar><Typography>{currentUser.displayName.charAt(0)}</Typography></Avatar>}
+            </IconButton>
+            
             </Box>  
 
             <div className={styles.uCardPoints}>

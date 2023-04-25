@@ -6,7 +6,7 @@ import {auth, provider} from '../firebase';
 import InstallButton from "./InstallButton";
 
 const Login = (type, color) => {
-
+ 
   const loginWithGoogle = () =>{
     signInWithRedirect(auth, provider)
   }

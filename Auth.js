@@ -4,7 +4,7 @@ import {getAuth} from "firebase/auth"
 import Login from './components/Login';
 import { getDocs, onSnapshot } from 'firebase/firestore';
 import { pointRef } from './firebase';
-
+import Loading from './components/Loading';
 const AuthContext = createContext({});
 
 
@@ -12,7 +12,7 @@ const AuthContext = createContext({});
 export const AuthProvider = ({children}) => {
 
     const [currentUser, setCurrentUser] = useState(null)
-    
+    const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const auth = getAuth();
@@ -20,16 +20,21 @@ export const AuthProvider = ({children}) => {
         if(!user){
             // console.log('no user');
             setCurrentUser(null);
+            setLoading(false);
             return
         }
         const token = await user.getIdToken();
         setCurrentUser(user);
+        setLoading(false);
         
         // console.log('token', token);
         // console.log('user', user);
     })
   }, [])
 
+  if(loading){
+    <Loading type="bubbles" color="blue"/>
+  }
 
   if(!currentUser){
     return <Login />

@@ -5,6 +5,16 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 })
 
+const nextConfig = {
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
+}
+
 module.exports = withPWA({
   // config
 })
+
+
+module.exports = nextConfig

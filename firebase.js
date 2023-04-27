@@ -19,5 +19,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
 const pointRef = collection(db,'points');
+const adminRef = collection(db,'admins');
 const provider = new GoogleAuthProvider();
-export {pointRef, db, auth, provider}
+export {pointRef, db, auth, provider,adminRef}

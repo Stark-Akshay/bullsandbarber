@@ -21,8 +21,11 @@ import Person from '@mui/icons-material/Person';
 import Home from '@mui/icons-material/Home';
 import Info from '@mui/icons-material/Info';
 import styles from '@/styles/Home.module.css';
+import { useAuth } from '../Auth';
+import { adminRef, auth, pointRef } from "../firebase";
 
-export default function NavBartwo() {
+
+export default function NavBarthree() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -64,14 +67,8 @@ export default function NavBartwo() {
         </Typography>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
-            <Link href="/" className={styles.linkButtons}>
-              <Button>Home</Button>
-            </Link>
-            <Link href="/profile" className={styles.linkButtons}>
-              <Button>Profile</Button>
-            </Link>
-            <Link href="/about" className={styles.linkButtons}>
-              <Button>About</Button>
+            <Link href="" className={styles.linkButtons}>
+              <Button onClick={() => auth.signOut()}>Logout</Button>
             </Link>
           </Box>
         )}
@@ -114,11 +111,6 @@ export default function NavBartwo() {
     return (
       <Box sx={{ flexGrow: 1 }}>
         {appBar}
-        {isMobile && (
-          <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
-            {drawer}
-          </Drawer>
-        )}
       </Box>
     );
   }

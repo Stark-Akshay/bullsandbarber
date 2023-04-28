@@ -11,52 +11,68 @@ import {
   TextField,
   Button,
   Typography,
+  Box,
 } from "@mui/material/";
 
 import classes from '@/styles/Home.module.css';
-
-
-import { addDoc, collection, doc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, onSnapshot, query, setDoc } from "firebase/firestore";
 import { useAuth } from "../Auth";
-import { adminRef } from "../firebase";
+import { adminRef, auth, pointRef } from "../firebase";
+import { useEffect } from "react";
 
-
-const fakeData = [
-  { id: 1, email: "user1@example.com", number: 1234567890, points: 50 },
-  { id: 2, email: "user2@example.com", number: 2345678901, points: 20 },
-  { id: 3, email: "user3@example.com", number: 3456789012, points: 80 },
-  { id: 4, email: "user4@example.com", number: 4567890123, points: 60 },
-  { id: 5, email: "user5@example.com", number: 5678901234, points: 30 },
-  { id: 6, email: "user6@example.com", number: 6789012345, points: 70 },
-  { id: 7, email: "user7@example.com", number: 7890123456, points: 10 },
-  { id: 8, email: "user8@example.com", number: 8901234567, points: 90 },
-  { id: 9, email: "user9@example.com", number: 9012345678, points: 40 },
-  { id: 10, email: "user10@example.com", number: 1234567890, points: 50 },
-];
 
 const AdminUsage = () => {
     const {currentUser} = useAuth();
-    const [users, setUsers] = useState(fakeData);
+    const [users, setUsers] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [admin, setAdmin] = useState(false);
-    const handleEditPoints = (id, value) => {
-      const updatedUsers = users.map((user) =>
-        user.id === id ? { ...user, points: value } : user
-      );
-      setUsers(updatedUsers);
-    };
+    const [tempid, setTempID] = useState("");
+    const [temppoints, setTempPoints] = useState(0);
+
+    const handleEditPoints = async (id, value) => {
+        try {
+          const docRef = doc(pointRef, id);
+          await setDoc(docRef, { point: value }, { merge: true });
+        //   const updatedUsers = users.map((user) =>
+        //     user.id === id ? { ...user, points: value } : user
+        //   );
+        //   setUsers(updatedUsers);
+        } catch (error) {
+          console.error("Error updating points:", error);
+        }
+      };
   
     const filteredUsers = users.filter((user) => {
       if (searchTerm === "") {
         return true;
       }
-      const searchLower = searchTerm.toLowerCase();
+      const searchLower = searchTerm;
       return (
         user.email.toLowerCase().includes(searchLower) ||
-        user.number.toString().includes(searchLower) ||
-        user.points.toString().includes(searchLower)
+        user.id.toString().includes(searchLower) ||
+        user.point.toString().includes(searchLower)
       );
     });
+
+
+
+    useEffect(() => {
+            const q = query(pointRef);
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            
+                setUsers(
+                    querySnapshot.docs.map(
+                        doc => ({
+                            ...doc.data(), id:doc.id
+                        })
+                    )
+                )
+            });
+
+            return unsubscribe
+    }, [])
+    
+
 
     let emails = [""];
     let notes = [];
@@ -66,7 +82,7 @@ const AdminUsage = () => {
             snapshot.docs.forEach((doc) => {
               notes.push({...doc.data(), id:doc.id});
               notes.forEach((note) => {
-                // console.log(note.email);
+              
                 emails.push(note.email);
               })
             })
@@ -82,10 +98,14 @@ const AdminUsage = () => {
         if(admin){
           return (
             <div>
-              <Typography variant="h4" gutterBottom>
+                <div>
+                <Typography variant="h4" gutterBottom>
               User Count: {users.length}
               </Typography>
-              <TextField
+                </div>
+              
+                <div className={classes.searchbar}>
+                <TextField
                 label="Search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -94,12 +114,16 @@ const AdminUsage = () => {
         
                         }}
               />
+                </div>
+              
+             
+              
               <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="User Table">
                   <TableHead>
                     <TableRow>
                       <TableCell>Email</TableCell>
-                      <TableCell align="right">Number</TableCell>
+                      {/* <TableCell align="center">ID</TableCell> */}
                       <TableCell align="right">Points</TableCell>
                       <TableCell align="right">Edit Points</TableCell>
                     </TableRow>
@@ -110,8 +134,8 @@ const AdminUsage = () => {
                         <TableCell component="th" scope="row">
                           {user.email}
                         </TableCell>
-                        <TableCell align="right">{user.number}</TableCell>
-                        <TableCell align="right">{user.points}</TableCell>
+                        {/* <TableCell align="center">{user.id}</TableCell> */}
+                        <TableCell align="right">{user.point}</TableCell>
                         <TableCell align="right" sx={{
                             display:"flex",
                             justifyContent:"right",
@@ -121,15 +145,14 @@ const AdminUsage = () => {
                           <TextField
                             className={classes.input}
                             type="number"
-                            defaultValue={user.points}
+                            defaultValue={user.point}
                             InputProps={{ inputProps: { min: 0, max: 100 } }}
-                            onChange={(event) =>
-                            handleEditPoints(user.id, event.target.value)
+                            onChange={
+                                (event) =>
+                                handleEditPoints(user.id, event.target.value)
                             }
                             />
-                            <Button variant="contained" color="primary">
-                            Save
-                            </Button>
+                        
                             </TableCell>
                             </TableRow>
                             ))}

@@ -5,13 +5,13 @@ import NavBartwo from "./NavBartwo";
 import { adminRef } from "../firebase";
 import { useState } from "react";
 import NavBarthree from "./NavBarthree";
-
+import { useRouter } from "next/router";
 
 
 const Layout = ({children}) =>{
     const {currentUser} = useAuth();
     const [admin, setAdmin] = useState(false);
-
+    const router = useRouter();
 let emails = [""];
     let notes = [];
     //checking if the email exists start
@@ -36,7 +36,7 @@ let emails = [""];
         if(admin){
             return(
                 <>
-               
+
                     <NavBarthree/>
                     <div>
                         {children}

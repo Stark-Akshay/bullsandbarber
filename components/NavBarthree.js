@@ -67,6 +67,9 @@ export default function NavBarthree() {
         </Typography>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
+            <Link href="/admin" className={styles.linkButtons}>
+              <Button>Admin</Button>
+            </Link>
             <Link href="" className={styles.linkButtons}>
               <Button onClick={() => auth.signOut()}>Logout</Button>
             </Link>

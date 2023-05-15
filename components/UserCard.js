@@ -34,14 +34,17 @@ const UserCard = () => {
     greeting = "Good evening";
   }
     return (
+      
       <>
+      
       <Card className={styles.userCard} elevation={5} sx={{
         
       }}>
             <Box className={styles.cardDetail}>
-            <Typography variant="h5" className={styles.greetText}>{greeting} {currentUser.displayName}</Typography>
+            <Typography variant="h5" className={styles.greetText}>{greeting} {currentUser.phoneNumber}</Typography>
             <IconButton onClick={() => auth.signOut()}>
-            {currentUser.photoURL?<Avatar src={(currentUser.photoURL)} />:<Avatar><Typography>{currentUser.displayName.charAt(0)}</Typography></Avatar>}
+        <img src="/icons/logout.svg" alt="logout" />
+            {/* {currentUser.photoURL?<Avatar src={(currentUser.photoURL)} />:<Avatar><Typography>{currentUser.displayName.charAt(0)}</Typography></Avatar>} */}
             </IconButton>
             
             </Box>  

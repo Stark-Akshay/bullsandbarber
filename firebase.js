@@ -21,4 +21,13 @@ const auth = getAuth();
 const pointRef = collection(db,'points');
 const adminRef = collection(db,'admins');
 const provider = new GoogleAuthProvider();
+
+
+if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+  if (/iPhone|iPod|iPad/.test(navigator.platform) && !window.MSStream) {
+    document.querySelector('link[rel="manifest"]').href = '/manifest-ios.json';
+  }
+}
+
+
 export {pointRef, db, auth, provider,adminRef}

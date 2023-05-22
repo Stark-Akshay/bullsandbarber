@@ -1,7 +1,7 @@
 import { Avatar, Card, Typography, Box, LinearProgress, IconButton } from "@mui/material";
 import { useState, useEffect } from "react";
 import styles from '@/styles/Home.module.css';
-import { getDocs } from "firebase/firestore";
+import { onSnapshot } from 'firebase/firestore';
 import { pointRef } from "../firebase";
 import PointCollect from "./PointCollect";
 import { auth } from "../firebase";
@@ -9,12 +9,27 @@ import { useAuth } from "../Auth";
 
 
 const UserCard = () => {
-  
+
     const {currentUser} = useAuth();
     const [time, setTime] = useState(new Date());
-
+    const [name, setName] = useState("User");
+    let books = [];
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
+
+     //snapshot code starting
+     onSnapshot(pointRef, (snapshot) => {
+      snapshot.docs.forEach((doc) => {
+          books.push({ ...doc.data(), id: doc.id });
+          books.forEach((book) => {
+            if (book.phonenumber == currentUser.phoneNumber) {
+              setName(book.name);
+            }
+          });
+          
+        });
+    })
+    //snapshot code end 
 
     return () => clearInterval(timer);
   
@@ -41,7 +56,7 @@ const UserCard = () => {
         
       }}>
             <Box className={styles.cardDetail}>
-            <Typography variant="h5" className={styles.greetText}>{greeting} {currentUser.phoneNumber}</Typography>
+            <Typography variant="h5" className={styles.greetText}>{greeting} {name}</Typography>
             <IconButton onClick={() => auth.signOut()}>
         <img src="/icons/logout.svg" alt="logout" />
             {/* {currentUser.photoURL?<Avatar src={(currentUser.photoURL)} />:<Avatar><Typography>{currentUser.displayName.charAt(0)}</Typography></Avatar>} */}

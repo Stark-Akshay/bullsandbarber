@@ -12,7 +12,7 @@ const Layout = ({children}) =>{
     const {currentUser} = useAuth();
     const [admin, setAdmin] = useState(false);
     const router = useRouter();
-let emails = [""];
+    let phones = [""];
     let notes = [];
     //checking if the email exists start
           getDocs(adminRef)
@@ -21,12 +21,12 @@ let emails = [""];
               notes.push({...doc.data(), id:doc.id});
               notes.forEach((note) => {
               
-                emails.push(note.email);
+                phones.push(note.phonenumber);
               })
             })
           })
           .then(() => {
-            const found = emails.includes(currentUser.email)
+            const found = phones.includes(currentUser.phoneNumber)
             if(found){
               setAdmin(true);
             }

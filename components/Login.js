@@ -6,7 +6,7 @@ import { auth, provider } from '../firebase';
 import InstallButton from "./InstallButton";
 
 const Login = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('+971');
   const [showOTPInput, setShowOTPInput] = useState(false);
   const [otp, setOtp] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -49,9 +49,10 @@ const Login = () => {
         onChange={(e) => setPhoneNumber(e.target.value)}
         label="Phone Number"
         type="tel"
+        placeholder="+971*******"
         required
       />
-      <Button onClick={loginWithPhoneNumber} variant="contained">
+      <Button onClick={loginWithPhoneNumber} variant="contained" sx={{mt: '5%'}}>
         {showOTPInput ? 'Submit OTP' : 'Sign in with Phone Number'}
       </Button>
       {showOTPInput && (
@@ -63,10 +64,10 @@ const Login = () => {
           required
         />
       )}
-      <Button onClick={loginWithGoogle} variant="contained" startIcon={<GoogleIcon />}>
+      {/* <Button onClick={loginWithGoogle} variant="contained" startIcon={<GoogleIcon />}>
         Sign in with Google
       </Button>
-      <InstallButton />
+      <InstallButton /> */}
       <div id="recaptcha-container" />
     </Grid>
   );

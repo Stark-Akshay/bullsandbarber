@@ -13,9 +13,10 @@ import {
   Typography,
   Box,
 } from "@mui/material/";
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 import classes from '@/styles/Home.module.css';
-import { addDoc, collection, doc, getDocs, onSnapshot, query, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, onSnapshot, query, setDoc, deleteDoc } from "firebase/firestore";
 import { useAuth } from "../Auth";
 import { adminRef, auth, pointRef } from "../firebase";
 import { useEffect } from "react";
@@ -41,6 +42,15 @@ const AdminUsage = () => {
           console.error("Error updating points:", error);
         }
       };
+
+      const handleDelete = async (id) => {
+        try {
+            const docRef = doc(pointRef, id);
+            await deleteDoc(docRef);
+        } catch (error) {
+            console.error("Error deleting user:", error);
+        }
+    };
   
     const filteredUsers = users.filter((user) => {
       if (searchTerm === "") {
@@ -48,9 +58,10 @@ const AdminUsage = () => {
       }
       const searchLower = searchTerm;
       return (
-        user.email.toLowerCase().includes(searchLower) ||
+        user.phonenumber.toLowerCase().includes(searchLower) ||
+        (user.name && user.name.toLowerCase().includes(searchLower)) ||
         user.id.toString().includes(searchLower) ||
-        user.point.toString().includes(searchLower)
+        user.point.toString().includes(searchLower) 
       );
     });
 
@@ -74,7 +85,7 @@ const AdminUsage = () => {
     
 
 
-    let emails = [""];
+    let phones = [""];
     let notes = [];
     //checking if the email exists start
           getDocs(adminRef)
@@ -83,12 +94,12 @@ const AdminUsage = () => {
               notes.push({...doc.data(), id:doc.id});
               notes.forEach((note) => {
               
-                emails.push(note.email);
+                phones.push(note.phonenumber);
               })
             })
           })
           .then(() => {
-            const found = emails.includes(currentUser.email)
+            const found = phones.includes(currentUser.phoneNumber)
             if(found){
               setAdmin(true);
             }
@@ -122,19 +133,20 @@ const AdminUsage = () => {
                 <Table className={classes.table} aria-label="User Table">
                   <TableHead>
                     <TableRow>
-                      <TableCell>Email</TableCell>
-                      {/* <TableCell align="center">ID</TableCell> */}
+                      <TableCell>Phone Number</TableCell>
+                      <TableCell align="center">Name</TableCell>
                       <TableCell align="right">Points</TableCell>
                       <TableCell align="right">Edit Points</TableCell>
+                      <TableCell align="right">Delete</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {filteredUsers.map((user) => (
                       <TableRow key={user.id}>
                         <TableCell component="th" scope="row">
-                          {user.email}
+                          {user.phonenumber}
                         </TableCell>
-                        {/* <TableCell align="center">{user.id}</TableCell> */}
+                        <TableCell align="center">{user.name}</TableCell>
                         <TableCell align="right">{user.point}</TableCell>
                         <TableCell align="right" sx={{
                             display:"flex",
@@ -154,6 +166,14 @@ const AdminUsage = () => {
                             />
                         
                             </TableCell>
+                            <TableCell align="right">
+                            <IconButton 
+                            color="secondary" 
+                            onClick={() => handleDelete(user.id)}
+                            >
+                            <DeleteIcon />
+                        </IconButton>
+                        </TableCell>
                             </TableRow>
                             ))}
                             </TableBody>

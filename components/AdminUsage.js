@@ -12,6 +12,7 @@ import {
   Button,
   Typography,
   Box,
+  Tooltip,
 } from "@mui/material/";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
@@ -20,6 +21,7 @@ import { addDoc, collection, doc, getDocs, onSnapshot, query, setDoc, deleteDoc 
 import { useAuth } from "../Auth";
 import { adminRef, auth, pointRef } from "../firebase";
 import { useEffect } from "react";
+import DoneIcon from '@mui/icons-material/Done';
 
 
 const AdminUsage = () => {
@@ -41,6 +43,7 @@ const AdminUsage = () => {
         } catch (error) {
           console.error("Error updating points:", error);
         }
+        
       };
 
       const handleDelete = async (id) => {
@@ -160,19 +163,37 @@ const AdminUsage = () => {
                             defaultValue={user.point}
                             InputProps={{ inputProps: { min: 0, max: 100 } }}
                             onChange={
-                                (event) =>
-                                handleEditPoints(user.id, event.target.value)
+                                (event) => {
+                                    setTempID(user.id);
+                                    setTempPoints(event.target.value);
+                                }
+                                
                             }
                             />
+                            <Tooltip title="Submit">
+                            <IconButton onClick={
+                              () => { 
+                                handleEditPoints(tempid,temppoints);
+                              }
+                            }>
+                              <DoneIcon sx={{
+                                color:"green"
+                              }}/>
+                            </IconButton>
+                            </Tooltip>
+                            
                         
                             </TableCell>
                             <TableCell align="right">
-                            <IconButton 
+                              <Tooltip title="Delete">
+                              <IconButton 
                             color="secondary" 
                             onClick={() => handleDelete(user.id)}
                             >
                             <DeleteIcon />
                         </IconButton>
+                              </Tooltip>
+                            
                         </TableCell>
                             </TableRow>
                             ))}

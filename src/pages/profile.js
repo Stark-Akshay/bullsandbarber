@@ -1,5 +1,8 @@
 import styles from '@/styles/Home.module.css'
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import Head from 'next/head'
+import LogoutIcon from '@mui/icons-material/Logout';
+import { auth } from '../../firebase';
 
 const Profile =()=>{
     return(
@@ -10,8 +13,16 @@ const Profile =()=>{
                 </title>
                 <link rel='manifest' href='/manifest.json'/>
             </Head>
-            <h1 className={styles.headertext}>Hello User!</h1>
-            <h1 className={styles.subtext}>Welcome to Profile Page</h1>
+            <List>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => auth.signOut()}>
+              <ListItemIcon>
+                <LogoutIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItemButton>
+            </ListItem>
+            </List>
         </div>
     )
 };

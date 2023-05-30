@@ -1,4 +1,4 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField, Typography,Box } from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
 import React, { useState } from 'react';
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, signInWithPopup, signInWithRedirect } from "firebase/auth";
@@ -45,6 +45,7 @@ const Login = () => {
       style={{ minHeight: '100vh' }}
     >
       <TextField
+      
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
         label="Phone Number"
@@ -52,18 +53,29 @@ const Login = () => {
         placeholder="+971*******"
         required
       />
+      {showOTPInput && (
+        <Box
+        sx={{
+          marginTop:"15px"
+        }}
+        >
+              <TextField
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              label="OTP"
+              type="number"
+              required
+            />
+
+            <Typography textAlign={'center'}>Please Wait for the OTP!</Typography>
+        </Box>
+        
+        
+      )}
       <Button onClick={loginWithPhoneNumber} variant="contained" sx={{mt: '5%'}}>
         {showOTPInput ? 'Submit OTP' : 'Sign in with Phone Number'}
       </Button>
-      {showOTPInput && (
-        <TextField
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          label="OTP"
-          type="number"
-          required
-        />
-      )}
+      
       {/* <Button onClick={loginWithGoogle} variant="contained" startIcon={<GoogleIcon />}>
         Sign in with Google
       </Button>

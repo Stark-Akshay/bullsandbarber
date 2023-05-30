@@ -21,7 +21,7 @@ import Person from '@mui/icons-material/Person';
 import Home from '@mui/icons-material/Home';
 import Info from '@mui/icons-material/Info';
 import styles from '@/styles/Home.module.css';
-
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 export default function NavBartwo() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -45,7 +45,7 @@ export default function NavBartwo() {
 
 
   const appBar = (
-    <AppBar elevation={0} position="static" sx={{backgroundColor:'#fff'}}>
+    <AppBar elevation={0} position="static" className={styles.appbar_bg}>
       <Toolbar>
         {isMobile && (
           <IconButton
@@ -59,7 +59,7 @@ export default function NavBartwo() {
             <MenuIcon />
           </IconButton>
         )}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'#757de8' }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1}} className={styles.appbar_text}>
           Bulls and Barber
         </Typography>
         {!isMobile && (
@@ -101,7 +101,7 @@ export default function NavBartwo() {
         </ListItem>
         <ListItem component={Link} href="/about">
           <ListItemIcon>
-            <Info />
+          <LocalOfferIcon/>
           </ListItemIcon>
           <ListItemText primary="About" />
         </ListItem>

@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { FaHome, FaUser, FaInfo } from 'react-icons/fa';
 import styles from '@/styles/Home.module.css'
-import Person from '@mui/icons-material/Person';
 import Home from '@mui/icons-material/Home';
-import Info from '@mui/icons-material/Info';
+import { LocalOffer, Settings } from '@mui/icons-material';
+
 
 const BottomNav = () => {
   return (
@@ -13,7 +13,8 @@ const BottomNav = () => {
       <ul>
         <li>
         <Link href="/profile">
-            <Person fontSize='large'/>
+            <Settings fontSize='large' />
+
           </Link>
         </li>
         <li>
@@ -22,8 +23,8 @@ const BottomNav = () => {
           </Link>
         </li>
         <li>
-        <Link href="/about">
-            <Info fontSize='large'/>
+        <Link href="/useroffer">
+            <LocalOffer fontSize='large' />
         </Link>
         </li>
   </ul>

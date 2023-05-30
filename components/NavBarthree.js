@@ -48,7 +48,7 @@ export default function NavBarthree() {
 
 
   const appBar = (
-    <AppBar elevation={0} position="static" sx={{backgroundColor:'#fff'}}>
+    <AppBar elevation={0} position="static" className={styles.appbar_bg}>
       <Toolbar>
         {isMobile && (
           <IconButton
@@ -62,13 +62,19 @@ export default function NavBarthree() {
             <MenuIcon />
           </IconButton>
         )}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'#757de8' }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1}} className={styles.appbar_text}>
           Bulls and Barber
         </Typography>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
             <Link href="/admin" className={styles.linkButtons}>
               <Button>Admin</Button>
+            </Link>
+            <Link href="/offers" className={styles.linkButtons}>
+              <Button>User Offers</Button>
+            </Link>
+            <Link href="/shopoffers" className={styles.linkButtons}>
+              <Button>Shop Offers</Button>
             </Link>
             <Link href="" className={styles.linkButtons}>
               <Button onClick={() => auth.signOut()}>Logout</Button>

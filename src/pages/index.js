@@ -4,6 +4,7 @@ import InstallButton from '../../components/InstallButton'
 import HomeFront from '../../components/HomeFront'
 import UserCard from '../../components/UserCard'
 import Login from '../../components/Login'
+import UserImageList from '../../components/UserImageList'
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
     </Head>
       <div className={styles.container}>
         <UserCard />
+        <UserImageList />
         {/* <InstallButton /> */}
       </div>
     </>

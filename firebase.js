@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import {getFirestore, collection, } from "firebase/firestore";
 import {getAuth, GoogleAuthProvider} from "firebase/auth";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC3Gerzi6t8bqfR3gGEOLqRG4Ub7Wl-qCI",
@@ -17,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
+const storage = getStorage(app);
 const auth = getAuth();
 const pointRef = collection(db,'points');
 const adminRef = collection(db,'admins');
@@ -30,4 +32,4 @@ if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
 }
 
 
-export {pointRef, db, auth, provider,adminRef}
+export {pointRef, db, auth, provider,adminRef, storage};

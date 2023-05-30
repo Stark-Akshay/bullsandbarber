@@ -83,7 +83,7 @@ const Login = () => {
       </Button>
       <InstallButton /> */}
       <div id="recaptcha-container" />
-      <InstallButton/>
+      {/* <InstallButton/> */}
     </Grid>
   );
 };

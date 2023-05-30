@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { auth, provider } from '../firebase';
 import InstallButton from "./InstallButton";
+import Script from "next/script";
 
 const Login = () => {
+
   const [phoneNumber, setPhoneNumber] = useState('+971');
   const [showOTPInput, setShowOTPInput] = useState(false);
   const [otp, setOtp] = useState('');
@@ -81,6 +83,7 @@ const Login = () => {
       </Button>
       <InstallButton /> */}
       <div id="recaptcha-container" />
+      <InstallButton/>
     </Grid>
   );
 };

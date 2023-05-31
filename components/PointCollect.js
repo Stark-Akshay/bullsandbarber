@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { db, pointRef } from '../firebase';
 import { Box ,Typography, Modal, TextField, Button, Card, Paper } from '@mui/material';
 import { useAuth } from '../Auth';
+import styles from '@/styles/Home.module.css';
 
 
 const PointCollect = () => {
@@ -23,12 +24,16 @@ const PointCollect = () => {
         notes.push({...doc.data(), id:doc.id});
         notes.forEach((note) => {
           phones.push(note.phonenumber);
+          console.log(note.phoneNumber);
         })
       })
     })
     .then(() => {
       const found = phones.includes(currentUser.phoneNumber)
+      console.log(found);
+      console.log(currentUser.phoneNumber);
       if(!found){
+        console.log("inside");
         setOpen(true);  // open the modal
       }
     }) 
@@ -79,7 +84,7 @@ const PointCollect = () => {
         height:"",
        
       }}>
-      <h2 id="simple-modal-title">What should we call you?</h2>
+      <h2 id="simple-modal-title" className={styles.text_who}>What should we call you?</h2>
       <Box sx={{
         display:"flex",
         justifyContent:"space-around",
@@ -106,13 +111,9 @@ const PointCollect = () => {
 
   return (
     <div>
-      <Typography variant="h6">
-        Your Points: {point}
-      </Typography>
-
       <Modal
         open={open}
-        onClose={() => setOpen(false)}
+        // onClose={() => setOpen(false)}
         aria-labelledby="simple-modal-title"
       >
         {body}

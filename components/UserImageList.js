@@ -14,6 +14,16 @@ function UserImageList() {
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+
+  const sendNotification = (num) =>{
+    Notification.requestPermission().then(perm => {
+      if (perm === 'granted') {
+       new Notification(`Hey you have ${num} new offers waiting for you`)
+      }
+
+    })
+  }
+
   const handleCardClick = (image) => {
     setSelectedImage(image);
     setOpen(true);
@@ -32,9 +42,14 @@ function UserImageList() {
         
         if (parseInt(point)>=parseInt(image.points)) {
           imageList.push(image);
+          
         }
       });
       setImages(imageList);
+      if(imageList.length!=0){
+        sendNotification(imageList.length);
+      }
+      
     });
 
     // Cleanup function

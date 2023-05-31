@@ -3,8 +3,11 @@ import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui
 import Head from 'next/head'
 import LogoutIcon from '@mui/icons-material/Logout';
 import { auth } from '../../firebase';
+import { useRouter } from 'next/router';
 
 const Profile =()=>{
+
+  const router = useRouter();
     return(
         <div>
             <Head>
@@ -15,7 +18,11 @@ const Profile =()=>{
             </Head>
             <List>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => auth.signOut()}>
+            <ListItemButton onClick={() => {
+              router.push('/');
+              auth.signOut();
+              
+              }}>
               <ListItemIcon>
                 <LogoutIcon/>
               </ListItemIcon>

@@ -16,24 +16,59 @@ import InfoIcon from '@mui/icons-material/Info';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
-import { Button } from '@mui/material';
+import { Button, Snackbar } from '@mui/material';
 import Person from '@mui/icons-material/Person';
 import Home from '@mui/icons-material/Home';
 import Info from '@mui/icons-material/Info';
 import styles from '@/styles/Home.module.css';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { NotificationsActive } from '@mui/icons-material';
+
 export default function NavBartwo() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [granted, setGranted] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   
-  
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+
+  }
+
+  const action = (
+    <React.Fragment>
+      <Button color="primary" size="small" onClick={handleClose}>
+        Close
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+      </IconButton>
+    </React.Fragment>
+  );
 
   const handleNotifClick = () =>{
     Notification.requestPermission().then(perm => {
-      alert(perm)
+      if (perm === 'granted') {
+        setGranted([true]);
+        handleClick();
+      }
+
     })
   }
 
@@ -69,7 +104,8 @@ export default function NavBartwo() {
           Bulls and Barber
         </Typography>
         <IconButton onClick={handleNotifClick}>
-            <NotificationsIcon/>
+          {granted?<NotificationsActive/>:<NotificationsIcon/>}
+            
         </IconButton>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
@@ -128,6 +164,14 @@ export default function NavBartwo() {
             {drawer}
           </Drawer>
         )}
+        
+        <Snackbar
+  open={open}
+  autoHideDuration={6000}
+  onClose={handleClose}
+  message="Notification is on"
+  action={action}
+/>
       </Box>
     );
   }

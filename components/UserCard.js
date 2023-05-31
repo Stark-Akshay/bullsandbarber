@@ -48,6 +48,7 @@ const UserCard = () => {
 
   return (
     <>
+    <PointCollect />
       <Card className={[styles.box_gradient, styles.gold].join(' ')} elevation={15} >
         <div className={styles.card_div}>
         <p className={styles.greetText}>

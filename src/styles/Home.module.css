@@ -4,6 +4,70 @@
 
 
 
+
+/*Product show*/
+
+.product_shadow{
+  -webkit-box-shadow: 1px 20px 17px -11px rgba(0,0,0,0.78) !important;
+  -moz-box-shadow: 1px 20px 17px -11px rgba(0,0,0,0.78) !important;
+  box-shadow: 1px 20px 17px -11px rgba(0,0,0,0.78) !important;
+  
+}
+.product_image
+{
+  object-fit: contain !important;
+}
+
+.card_bg{
+  background-color: #dfa944 !important;
+}
+/*Login*/
+
+.links{
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500;
+  font-weight: bolder;
+  color: #8d5f0a;
+}
+.ml_5{
+  margin-left: 5px;
+}
+
+.mt{
+  margin-top: 1rem;
+}
+
+.just_centr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_col{
+  display: flex;
+  flex-direction: column;
+}
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ensure_text{
+font-family: 'Poppins', sans-serif !important;
+font-weight: 500;
+font-size: 9px;
+
+}
+.ensure_text_1{
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500;
+  font-size: 16px;
+  
+  }
+
 /*card images on user screen*/
 .title_real{
   display: flex;
@@ -45,13 +109,17 @@ border: none !important;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 0px;
 }
 
 .no_deals{
   text-align: center;
   font-family: 'Poppins', sans-serif !important;
   font-weight: 100 !important;
+}
+
+.mb_0{
+  margin-bottom: 0;
 }
 
 .item_image_wrapper{
@@ -66,8 +134,7 @@ border: none !important;
 .item_image{
   height: auto;
   width: 100%;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  
 }
 .deal_cover{
   margin-top: 20px !important;
@@ -219,6 +286,22 @@ border: none !important;
   margin: 2rem;
   border-radius: 10px;
 }
+
+/* .card_logo_flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: flex-end;
+  padding: 5%;
+  flex: 1;
+}
+
+.card_logo_flex img{
+  opacity: 0.78;
+  filter: hue-rotate(45deg);
+} */
+
 
 
 

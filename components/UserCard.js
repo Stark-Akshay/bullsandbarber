@@ -7,7 +7,7 @@ import PointCollect from "./PointCollect";
 import { auth } from "../firebase";
 import { useAuth } from "../Auth";
 import usePointCollect from "./usePointCollect";
-
+import Image from 'next/image';
 const UserCard = () => {
   const point = usePointCollect();
   const { currentUser } = useAuth();
@@ -60,6 +60,16 @@ const UserCard = () => {
             {point}
           </p>
         </div>
+        {/* <div className={styles.card_logo_flex}>
+          <Image
+            src={'/Images/bb.png'}
+            width={40}
+            height={40}
+            alt="b and b official logo"
+          >
+
+          </Image>
+        </div> */}
       </Card>
     </>
   );

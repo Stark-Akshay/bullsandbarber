@@ -7,6 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import usePointCollect from './usePointCollect';
 import styles from '@/styles/Home.module.css';
+import Image from 'next/image';
 function UserImageList() {
   const point = usePointCollect();
   const [images, setImages] = useState([]);
@@ -50,8 +51,23 @@ function UserImageList() {
       <div className={styles.deal_line}></div>
     </div>
     <Container maxWidth="md">
-      {images.length===0?(<p className={styles.no_deals}>No deals available at the moment
-      </p>):
+      {images.length===0?(
+      <div className={[styles.flex_col, styles.just_centr].join(' ')}>
+      <p className={[styles.no_deals, styles.mb_0].join(' ')}>No deals available at the moment
+      </p>
+      <Image
+  
+        src="/Images/barber.svg"
+        width={300}
+        height={300}
+        alt='deals not found'
+      >
+
+      </Image>
+      </div>
+      
+      
+      ):
       <List style={{ maxHeight: '40vh', overflow: 'auto' }}>
         {images.map((image) => (
           <ListItem key={image.id} button onClick={() => handleCardClick(image)}>
@@ -81,12 +97,13 @@ function UserImageList() {
       </List>
       }
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Product Details</DialogTitle>
-        <DialogContent>
+        <DialogTitle id="form-dialog-title" className={styles.card_bg}>Offer Details</DialogTitle>
+        <DialogContent className={styles.card_bg}>
           {selectedImage && (
-            <Card>
+            <Card sx={{width:'auto'}} className={[styles.box_gradient, styles.gold, styles.product_shadow].join(' ')}>
               <CardActionArea>
                 <CardMedia
+                  className={styles.product_image}
                   component="img"
                   height="300"
                   image={selectedImage.url}
@@ -105,8 +122,8 @@ function UserImageList() {
             </Card>
           )}
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+        <DialogActions className={styles.card_bg}>
+          <Button onClick={handleClose} sx={{color:'#000'}}>Close</Button>
         </DialogActions>
       </Dialog>
     </Container>

@@ -22,6 +22,7 @@ import Home from '@mui/icons-material/Home';
 import Info from '@mui/icons-material/Info';
 import styles from '@/styles/Home.module.css';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 export default function NavBartwo() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -30,6 +31,11 @@ export default function NavBartwo() {
   
   
 
+  const handleNotifClick = () =>{
+    Notification.requestPermission().then(perm => {
+      alert(perm)
+    })
+  }
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -62,6 +68,9 @@ export default function NavBartwo() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1}} className={styles.appbar_text}>
           Bulls and Barber
         </Typography>
+        <IconButton onClick={handleNotifClick}>
+            <NotificationsIcon/>
+        </IconButton>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
             <Link href="/" className={styles.linkButtons}>

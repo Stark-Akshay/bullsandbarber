@@ -10,8 +10,8 @@
     "version": "1.2.1",
     "icons": [
         {
-            "src": "icons/icon-36x36.png",
-            "sizes": "36x36",
+            "src": "icons/icon-32x32.png",
+            "sizes": "32x32",
             "type": "image/png"
         },
         {

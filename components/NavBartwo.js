@@ -118,6 +118,9 @@ export default function NavBartwo() {
             <Link href="/about" className={styles.linkButtons}>
               <Button>About</Button>
             </Link>
+            <Link href="/testnotification" className={styles.linkButtons}>
+              <Button>Test</Button>
+            </Link>
           </Box>
         )}
       </Toolbar>

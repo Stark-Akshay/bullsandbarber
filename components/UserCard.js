@@ -1,21 +1,80 @@
-import { Avatar, Card, Typography, Box, LinearProgress, IconButton } from "@mui/material";
+import { Avatar, Card, Typography, Box, LinearProgress, IconButton, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import styles from '@/styles/Home.module.css';
 import { onSnapshot } from 'firebase/firestore';
-import { pointRef } from "../firebase";
+import { messaging, onMessageListener, pointRef } from "../firebase";
 import PointCollect from "./PointCollect";
 import { auth } from "../firebase";
 import { useAuth } from "../Auth";
 import usePointCollect from "./usePointCollect";
 import Image from 'next/image';
+import { getMessaging, getToken } from "firebase/messaging";
+
+
+
+
 const UserCard = () => {
   const point = usePointCollect();
   const { currentUser } = useAuth();
   const [time, setTime] = useState(new Date());
   const [name, setName] = useState("User");
+ 
   let books = [];
+  
+  const token = async () => {
+    const currentToken = await getToken(messaging, { vapidKey: 'BCOrm48yCZ02KkQ4_HSSb4zxmgEVOG8P2YZCYMj6nBHHP01w5K2K9DKp7z_TaBI2lzxU0ddG2hSLtZfKzsYO6L8' });
+    // console.log('current token: ', currentToken);
+  }
+  const registrationToken = 'dgXppLshBt6Sku8_vAV8PT:APA91bE_QRS37jUDMX-GeeIZEG0enwT-u8f2widsB_NFdVqyyuLdZwjWOy5vxK55UaEQdB82YbrfnTakFvev1Fw8fyTosYrKnzmZFDAmvYQUGIFw4QJNzHdrOOMlYA02_V667oHzZIwQ';
+const clickSend = () => {
+    
+const message = {
+  data:{
+    title:"hello",
+    body:"test",
+  },
+  token:registrationToken
+};
+
+const messaging = getMessaging();
+  messaging.send(message)
+  .then((response) => {
+    console.log('Success: ',response);
+  })
+  .catch((error)=>{
+    console.log("Error: ",error)
+  });
+
+
+  }
+
+  onMessageListener().then(payload => {
+    // setNotification({title: payload.notification.title, body: payload.notification.body})
+    new Notification(payload.notification.title,{
+      body: notification.body,
+    })
+    
+    console.log(payload);
+  }).catch(err => console.log('failed: ', err));
+
+
+  async function requestPermission(){
+    const permission = await Notification.requestPermission();
+    if(permission === 'granted'){
+      console.log('Notification permission granted.');
+    }
+    else if(permission === 'denied'){
+      console.log('Notification denied.');
+    }
+  }
+
+ useEffect(() => {
+  token();
+    requestPermission();
+ }, []);
 
   useEffect(() => {
+
     const timer = setInterval(() => setTime(new Date()), 1000);
 
     const unsubscribe = onSnapshot(pointRef, (snapshot) => {
@@ -71,7 +130,10 @@ const UserCard = () => {
 
           </Image>
         </div> */}
+        
       </Card>
+      {/* <Button onClick={clickSend}>TEST</Button> */}
+      
     </>
   );
 };

@@ -55,7 +55,7 @@ function UserOfferList() {
       <p className={[styles.no_deals, styles.mb_0].join(' ')}>No deals available at the moment
       </p>
       <Image
-  
+
         src="/Images/barber.svg"
         width={300}
         height={300}

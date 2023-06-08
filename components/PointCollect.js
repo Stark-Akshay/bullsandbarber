@@ -1,9 +1,11 @@
 import { addDoc, collection, doc, getDocs, onSnapshot, setDoc } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { db, pointRef } from '../firebase';
+import { getToken } from 'firebase/messaging';
 import { Box ,Typography, Modal, TextField, Button, Card, Paper } from '@mui/material';
 import { useAuth } from '../Auth';
 import styles from '@/styles/Home.module.css';
+
 
 
 const PointCollect = () => {
@@ -12,6 +14,7 @@ const PointCollect = () => {
   const [open, setOpen] = useState(false);
   const {currentUser} = useAuth();
   let books = [];
+
   useEffect(() => {
 
     let phones = [""];
@@ -24,16 +27,15 @@ const PointCollect = () => {
         notes.push({...doc.data(), id:doc.id});
         notes.forEach((note) => {
           phones.push(note.phonenumber);
-          console.log(note.phoneNumber);
+     
         })
       })
     })
     .then(() => {
       const found = phones.includes(currentUser.phoneNumber)
-      console.log(found);
-      console.log(currentUser.phoneNumber);
+  
       if(!found){
-        console.log("inside");
+
         setOpen(true);  // open the modal
       }
     }) 

@@ -1,5 +1,5 @@
 import { useEffect, useState, Fragment } from 'react';
-import { db, storage } from '../firebase';
+import { db, storage, messaging } from '../firebase';
 import { collection, onSnapshot, query, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
 import { Card, CardActionArea, CardMedia, CardContent, List, ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Container, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } from '@mui/material';
@@ -8,21 +8,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import usePointCollect from './usePointCollect';
 import styles from '@/styles/Home.module.css';
 import Image from 'next/image';
+
+
 function UserImageList() {
   const point = usePointCollect();
   const [images, setImages] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-
-  const sendNotification = (num) =>{
-    Notification.requestPermission().then(perm => {
-      if (perm === 'granted') {
-       new Notification(`Hey you have ${num} new offers waiting for you`)
-      }
-
-    })
-  }
 
   const handleCardClick = (image) => {
     setSelectedImage(image);
@@ -33,7 +26,10 @@ function UserImageList() {
     setOpen(false);
   };
 
+
   useEffect(() => {
+
+    
     const q = query(collection(db, 'pointoffers'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       let imageList = [];
@@ -46,10 +42,8 @@ function UserImageList() {
         }
       });
       setImages(imageList);
-      if(imageList.length!=0){
-        sendNotification(imageList.length);
-      }
-      
+   
+  
     });
 
     // Cleanup function

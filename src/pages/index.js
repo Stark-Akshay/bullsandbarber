@@ -5,10 +5,9 @@ import HomeFront from '../../components/HomeFront'
 import UserCard from '../../components/UserCard'
 import Login from '../../components/Login'
 import UserImageList from '../../components/UserImageList'
+import { useEffect } from 'react'
 
 export default function Home() {
- 
-
   // return <Login />
 
   return (

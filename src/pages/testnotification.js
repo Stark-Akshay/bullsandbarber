@@ -3,10 +3,9 @@ import { Button } from "@mui/material";
 const Notif = () => {
 
     const showNotification = () => {
-        // create a new notification
-        const notification = new Notification('JavaScript Notification API', {
-            body: 'This is a JavaScript Notification API demo',
-        });
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.showNotification('Notification with ServiceWorker');
+          });
     }
 
     return(
@@ -17,3 +16,4 @@ const Notif = () => {
 }
 
 export default Notif;
+

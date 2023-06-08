@@ -11,21 +11,22 @@ const BottomNav = () => {
 
     <nav className={styles.nav}>
       <ul>
-        <li>
-        <Link href="/profile">
-            <Settings fontSize='large' />
-
-          </Link>
+      <li>
+        <Link href="/useroffer">
+            <LocalOffer fontSize='large' />
+        </Link>
         </li>
         <li>
           <Link href="/">
           <Home fontSize='large'/>
           </Link>
         </li>
+       
         <li>
-        <Link href="/useroffer">
-            <LocalOffer fontSize='large' />
-        </Link>
+        <Link href="/profile">
+            <Settings fontSize='large' />
+
+          </Link>
         </li>
   </ul>
 </nav>

@@ -1,19 +1,19 @@
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 
-const Notif = () => {
+// const Notif = () => {
 
-    const showNotification = () => {
-        navigator.serviceWorker.ready.then(function(registration) {
-            registration.showNotification('Notification with ServiceWorker');
-          });
-    }
+//     const showNotification = () => {
+//         navigator.serviceWorker.ready.then(function(registration) {
+//             registration.showNotification('Notification with ServiceWorker');
+//           });
+//     }
 
-    return(
-        <Button onClick={showNotification}>Click</Button>
-    );
+//     return(
+//         <Button onClick={showNotification}>Click</Button>
+//     );
 
 
-}
+// }
 
-export default Notif;
+// export default Notif;
 

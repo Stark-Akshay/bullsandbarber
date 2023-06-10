@@ -32,7 +32,7 @@ const PointCollect = () => {
       })
     })
     .then(() => {
-      const found = phones.includes(currentUser.phoneNumber)
+      const found = phones.includes(currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email)
   
       if(!found){
 
@@ -46,7 +46,7 @@ const PointCollect = () => {
       snapshot.docs.forEach((doc) => {
           books.push({ ...doc.data(), id: doc.id });
           books.forEach((book) => {
-            if (book.phonenumber == currentUser.phoneNumber) {
+            if (book.phonenumber == currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email) {
               setPoint(book.point);
             }
           });
@@ -57,9 +57,10 @@ const PointCollect = () => {
     
   }, []);
 
+
   // Function to handle the submit of the name
   const handleSubmit = async () => {
-    await addDoc(pointRef,{phonenumber:currentUser.phoneNumber, point:0, name: name});
+    await addDoc(pointRef,{phonenumber:currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email, point:0, name: name});
     setOpen(false);
   }
 

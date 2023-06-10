@@ -81,8 +81,9 @@ const messaging = getMessaging();
       snapshot.docs.forEach((doc) => {
         books.push({ ...doc.data(), id: doc.id });
         books.forEach((book) => {
-          if (book.phonenumber === currentUser.phoneNumber) {
+          if (book.phonenumber === currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email) {
             setName(book.name);
+           
           }
         });
       });

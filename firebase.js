@@ -56,3 +56,4 @@ export const onMessageListener = () =>
 
 
 export {pointRef, db, auth, provider,adminRef, storage, messaging};
+// export {pointRef, db, auth, provider,adminRef, storage, messaging};

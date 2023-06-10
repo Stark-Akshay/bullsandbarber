@@ -136,7 +136,7 @@ const AdminUsage = () => {
                 <Table className={classes.table} aria-label="User Table">
                   <TableHead>
                     <TableRow>
-                      <TableCell>Phone Number</TableCell>
+                      <TableCell>Phone Number / Email</TableCell>
                       <TableCell align="center">Name</TableCell>
                       <TableCell align="right">Points</TableCell>
                       <TableCell align="right">Edit Points</TableCell>

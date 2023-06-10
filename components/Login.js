@@ -2,7 +2,7 @@ import { Button, Grid, TextField, Typography, Box, IconButton, Tooltip, Dialog, 
 import GoogleIcon from '@mui/icons-material/Google';
 import InfoIcon from '@mui/icons-material/Info';
 import React, { useState } from 'react';
-import { getAuth, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { auth, provider } from '../firebase';
 import InstallButton from "./InstallButton";
 import styles from '@/styles/Home.module.css';
@@ -12,9 +12,11 @@ import Image from 'next/image';
 const Login = () => {
   const [infoDialogOpen, setInfoDialogOpen] = useState(false);
 
+
+
   const loginWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
     } catch (error) {
       console.error(error);
     }

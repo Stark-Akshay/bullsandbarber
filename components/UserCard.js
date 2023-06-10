@@ -76,12 +76,12 @@ const messaging = getMessaging();
   useEffect(() => {
 
     const timer = setInterval(() => setTime(new Date()), 1000);
-
+    let nowUser = currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email;
     const unsubscribe = onSnapshot(pointRef, (snapshot) => {
       snapshot.docs.forEach((doc) => {
         books.push({ ...doc.data(), id: doc.id });
         books.forEach((book) => {
-          if (book.phonenumber === currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email) {
+          if (book.phonenumber === nowUser) {
             setName(book.name);
            
           }

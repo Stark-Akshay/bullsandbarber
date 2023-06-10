@@ -102,7 +102,7 @@ const AdminUsage = () => {
             })
           })
           .then(() => {
-            const found = phones.includes(currentUser.phoneNumber)
+            const found = phones.includes(currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email);
             if(found){
               setAdmin(true);
             }

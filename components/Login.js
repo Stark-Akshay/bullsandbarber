@@ -86,7 +86,7 @@ const Login = () => {
             <ol className={styles.ensure_text_1}>
               <li>Make sure your Chrome Browser is updated</li>
               <li>Open <a href="https://bullsandbarber.vercel.app" className={styles.links}>Bulls and Barber</a> on Chrome Browser</li>
-              <li>If a pop up does not appear asking you to add/share to homescreen and if you don't get any pop up.</li>
+              <li>If a pop up does not appear asking you to add/share to homescreen and if you don&apos;t get any pop up.</li>
               <li>Click on the more button on chrome <MoreVert /> </li>
               <li>Click on Add to Home screen / Install App and follow further instructions</li>
             </ol>

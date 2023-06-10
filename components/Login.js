@@ -145,7 +145,6 @@ const AuthPage = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push('/dashboard');
     } catch (error) {
       // Handle specific errors
       if (error.code === 'auth/wrong-password') {

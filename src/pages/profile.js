@@ -24,11 +24,13 @@ const Profile =()=>{
               
               }}>
               <ListItemIcon>
-                <LogoutIcon/>
+                <LogoutIcon className={styles.gold_font}/>
               </ListItemIcon>
-              <ListItemText primary="Logout" />
+              <ListItemText primary="Logout" className={styles.gold_font}/>
             </ListItemButton>
             </ListItem>
+
+
             </List>
         </div>
     )

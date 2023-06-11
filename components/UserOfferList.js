@@ -43,7 +43,7 @@ function UserOfferList() {
   return (
     <>
     <div className={styles.deal_cover}>
-      <p className={styles.deal_text}>
+      <p className={[styles.deal_text, styles.gold_font].join(' ')}>
         Shop Deals
       </p>
 

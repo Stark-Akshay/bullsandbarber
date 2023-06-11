@@ -23,7 +23,7 @@ import Info from '@mui/icons-material/Info';
 import styles from '@/styles/Home.module.css';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { NotificationsActive } from '@mui/icons-material';
+import { ConfirmationNumber, NotificationsActive, Settings } from '@mui/icons-material';
 
 export default function NavBartwo() {
   const theme = useTheme();
@@ -126,29 +126,30 @@ export default function NavBartwo() {
 
   const drawer = (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 250}}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-      <ListItem component={Link} href="/">
+      
+        <ListItem component={Link} href="/useroffer">
           <ListItemIcon>
-            <Home />
+            <LocalOfferIcon/>
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText primary="User Offer" />
+        </ListItem>
+        <ListItem component={Link} href="/">
+          <ListItemIcon>
+            <ConfirmationNumber/>
+          </ListItemIcon>
+          <ListItemText primary="Deals" />
         </ListItem>
         <ListItem component={Link} href="/profile">
           <ListItemIcon>
-            <Person />
+          <Settings/>
           </ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem>
-        <ListItem component={Link} href="/about">
-          <ListItemIcon>
-          <LocalOfferIcon/>
-          </ListItemIcon>
-          <ListItemText primary="About" />
+          <ListItemText primary="Settings" />
         </ListItem>
       </List>
       <Divider />
@@ -157,7 +158,7 @@ export default function NavBartwo() {
 
 
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1}}>
         {appBar}
         {isMobile && (
           <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>

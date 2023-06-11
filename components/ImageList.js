@@ -7,6 +7,7 @@ import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebas
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Container, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import styles from '@/styles/Home.module.css';
 
 function ImageList() {
   const [images, setImages] = useState([]);
@@ -94,7 +95,7 @@ function ImageList() {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className={styles.input_offer_bg}>
       <List style={{ maxHeight: '80vh', overflow: 'auto' }}>
         {images.map((image) => (
           <ListItem key={image.id}>
@@ -102,14 +103,16 @@ function ImageList() {
               <Avatar variant="square" src={image.url} />
             </ListItemAvatar>
             <ListItemText
+            className={styles.input_offer_bg}
               primary={image.title}
               secondary={
-                <Fragment>
+                <Fragment className={styles.input_offer_bg}>
                   <Typography
                     sx={{ display: 'inline' }}
                     component="span"
                     variant="body2"
                     color="text.primary"
+                    className={styles.input_offer_bg}
                   >
                     {image.description}
                   </Typography>
@@ -118,10 +121,10 @@ function ImageList() {
               }
             />
             <IconButton edge="end" aria-label="edit" onClick={() => handleClickOpen(image)}>
-              <EditIcon />
+              <EditIcon className={styles.input_offer_bg}/>
             </IconButton>
             <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(image)}>
-              <DeleteIcon />
+              <DeleteIcon className={styles.input_offer_bg} />
             </IconButton>
           </ListItem>
         ))}

@@ -5,6 +5,7 @@ import { storage, db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { TextField, Button, Container } from '@mui/material';
+import styles from '@/styles/Home.module.css';
 
 function UploadSOffer() {
   const [title, setTitle] = useState('');
@@ -57,6 +58,7 @@ function UploadSOffer() {
           onChange={(e) => setTitle(e.target.value)}
           label="Image title"
           required
+          className={styles.input_color}
         />
         <TextField
           fullWidth
@@ -66,12 +68,14 @@ function UploadSOffer() {
           label="Image description"
           multiline
           required
+          className={styles.input_color}
         />
         <Button
           variant="contained"
           component="label"
           fullWidth
           margin="normal"
+          className={styles.input_bg_color}
         >
           Upload File
           <input type="file" hidden onChange={onImageChange} required />
@@ -82,6 +86,8 @@ function UploadSOffer() {
           color="primary"
           fullWidth
           disabled={loading}
+          className={styles.input_bg_color}
+          className={loading?styles.input_bg_color:styles.input_disabled}
         >
           {loading ? 'Uploading...' : 'Upload Image'}
         </Button>

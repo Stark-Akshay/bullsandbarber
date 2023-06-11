@@ -3,17 +3,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
+.back_bg, .back_bg table th, .back_bg table tr, .back_bg table td, .back_bg table input{
+  background-color: #202020 !important;
+  color: #c39738;
+}
+
+.back_bg table fieldset, .back_bg table legend{
+  border-color: #c39738 !important;
+  color: #c39738 !important;
+}
 
 .gold_font{
   color: #c39738 !important;
 }
-
+.input_disabled{
+  margin-top: 10px !important;
+  background-color: #ccc !important;
+}
 .input_bg_color{
   background-color: #c39738 !important;
   color: #000 !important;
 }
 
-.input_color fieldset, .input_color legend span, .input_color label, .input_color input{
+.input_offer_bg, .input_offer_bg p{
+  color: #c39738 !important;
+}
+
+.input_color fieldset, .input_color legend span, .input_color label, .input_color input, .input_color textarea{
 color: #c39738 !important;
 border-color: #8d5f0a !important;
 }

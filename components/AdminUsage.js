@@ -22,6 +22,7 @@ import { useAuth } from "../Auth";
 import { adminRef, auth, pointRef } from "../firebase";
 import { useEffect } from "react";
 import DoneIcon from '@mui/icons-material/Done';
+import styles from '@/styles/Home.module.css';
 
 
 const AdminUsage = () => {
@@ -113,7 +114,7 @@ const AdminUsage = () => {
           return (
             <div>
                 <div>
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h4" gutterBottom className={styles.gold_font}>
               User Count: {users.length}
               </Typography>
                 </div>
@@ -127,12 +128,13 @@ const AdminUsage = () => {
                          width:'100%'
         
                         }}
+                        className={styles.input_color}     
               />
                 </div>
               
              
               
-              <TableContainer component={Paper}>
+              <TableContainer component={Paper} className={styles.back_bg}>
                 <Table className={classes.table} aria-label="User Table">
                   <TableHead>
                     <TableRow>
@@ -177,7 +179,7 @@ const AdminUsage = () => {
                               }
                             }>
                               <DoneIcon sx={{
-                                color:"green"
+                                color:"#c39738"
                               }}/>
                             </IconButton>
                             </Tooltip>
@@ -190,7 +192,7 @@ const AdminUsage = () => {
                             color="secondary" 
                             onClick={() => handleDelete(user.id)}
                             >
-                            <DeleteIcon />
+                            <DeleteIcon sx={{color:'#c39738'}}/>
                         </IconButton>
                               </Tooltip>
                             

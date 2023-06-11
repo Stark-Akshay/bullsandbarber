@@ -86,7 +86,6 @@ function UploadSOffer() {
           color="primary"
           fullWidth
           disabled={loading}
-          className={styles.input_bg_color}
           className={loading?styles.input_bg_color:styles.input_disabled}
         >
           {loading ? 'Uploading...' : 'Upload Image'}

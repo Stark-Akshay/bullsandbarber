@@ -7,7 +7,9 @@
     "name": "Bulls and Barber",
     "short_name": "B and B",
     "description": "A saloon app",
-    "version": "1.2.1",
+    "version": "2.0.0",
+    "status_bar_style": "background",
+    "status_bar_color": "#202020",
     "icons": [
         {
             "src": "icons/icon-32x32.png",

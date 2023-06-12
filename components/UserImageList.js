@@ -64,7 +64,8 @@ function UserImageList() {
       <div className={[styles.flex_col, styles.just_centr].join(' ')}>
       <p className={[styles.no_deals, styles.mb_0].join(' ')}>No deals available at the moment
       </p>
-      <Image
+      {/*new image has to be added*/}
+      {/* <Image
   
         src="/Images/barber.svg"
         width={300}
@@ -72,7 +73,7 @@ function UserImageList() {
         alt='deals not found'
       >
 
-      </Image>
+      </Image> */}
       </div>
       
       

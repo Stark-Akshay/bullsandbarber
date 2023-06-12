@@ -3,6 +3,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
+/*privacy policy*/
+
+/* Body */
+.privacy_body {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+}
+
+/* Title */
+.privacy_title {
+  font-family: Arial;
+  font-size: 26px;
+  color: #8d5f0a;
+}
+
+/* Subtitle */
+.privacy_subtitle {
+  font-family: Arial;
+  color: #c39738;
+  font-size: 14px;
+}
+
+/* Heading 1 */
+.privacy_heading_1 {
+  font-family: Arial;
+  font-size: 19px;
+  color: #c39738;
+}
+
+/* Heading 2 */
+.privacy_heading_2 {
+  font-family: Arial;
+  font-size: 17px;
+  color: #c39738;
+}
+
+/* Body Text */
+.privacy_body_text {
+  color: #c39738;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+/* Link */
+.privacy_link {
+  color: #ec9137;
+  font-size: 14px;
+  font-family: Arial;
+  word-break: break-word;
+}
+
+.privacy_ul{
+  color: #c39738;
+}
+
+
+
 .back_bg, .back_bg table th, .back_bg table tr, .back_bg table td, .back_bg table input{
   background-color: #202020 !important;
   color: #c39738;
@@ -368,23 +427,30 @@ border: none !important;
   padding:15px;
   display: flex;
   flex-direction: column;
+  width: 100%;
   
 }
 
 .avlpoint_class{
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   font-size: 18px;
   font-weight: 500;
   font-family: 'Poppins', sans-serif !important;
+  display: flex;
+  justify-content: flex-start;
+
 }
 
 .point_class{
-  margin:auto;
+  margin-bottom: auto;
   margin-left: 0px;
   margin-top: 0px;
   font-size: 46px;
   font-weight: 500;
   font-family: 'Poppins', sans-serif !important;
+  display: flex;
+  justify-content: flex-end;
 }
 .greetText{
   margin: auto;
@@ -394,6 +460,8 @@ border: none !important;
   font-size: 12px !important;
   width: 100%;
   font-family: 'Poppins', sans-serif !important;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .display_onlymob{

@@ -137,13 +137,13 @@ export default function NavBartwo() {
           <ListItemIcon>
             <LocalOfferIcon/>
           </ListItemIcon>
-          <ListItemText primary="User Offer" />
+          <ListItemText primary="Shop Offers" />
         </ListItem>
         <ListItem component={Link} href="/">
           <ListItemIcon>
             <ConfirmationNumber/>
           </ListItemIcon>
-          <ListItemText primary="Deals" />
+          <ListItemText primary="My Deals" />
         </ListItem>
         <ListItem component={Link} href="/profile">
           <ListItemIcon>

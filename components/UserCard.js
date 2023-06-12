@@ -74,6 +74,7 @@ const messaging = getMessaging();
  }, []);
 
   useEffect(() => {
+    
 
     const timer = setInterval(() => setTime(new Date()), 1000);
     let nowUser = currentUser.phoneNumber?currentUser.phoneNumber:currentUser.email;

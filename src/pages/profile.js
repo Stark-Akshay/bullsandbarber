@@ -29,7 +29,7 @@ const Profile =()=>{
               <ListItemText primary="Logout" className={styles.gold_font}/>
             </ListItemButton>
             </ListItem>
-
+             
 
             </List>
         </div>

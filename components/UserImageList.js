@@ -16,6 +16,16 @@ function UserImageList() {
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const Notify = () => {
+    navigator.serviceWorker.register('sw.js');
+Notification.requestPermission(function(result) {
+  if (result === 'granted') {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Offers Available');
+    });
+  }
+});
+  };
 
   const handleCardClick = (image) => {
     setSelectedImage(image);
@@ -42,7 +52,9 @@ function UserImageList() {
         }
       });
       setImages(imageList);
- 
+      if(imageList.length > 0){
+        Notify();
+      }
   
     });
 

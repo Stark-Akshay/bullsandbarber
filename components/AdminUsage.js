@@ -114,6 +114,7 @@ const AdminUsage = () => {
           return (
             <div>
                 <div>
+               
                 <Typography variant="h4" gutterBottom className={styles.gold_font}>
               User Count: {users.length}
               </Typography>

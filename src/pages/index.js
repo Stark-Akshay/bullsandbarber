@@ -12,11 +12,13 @@ export default function Home() {
 
   return (
     <>
+
     <Head>
       <title>Bulls and Barber</title>
       <link rel='manifest' href='/manifest.json'/>
     </Head>
       <div className={styles.container}>
+        
         <UserCard />
         <UserImageList />
         {/* <InstallButton /> */}

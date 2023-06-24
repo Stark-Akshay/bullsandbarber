@@ -14,6 +14,8 @@ function UserOfferList() {
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+ 
+  
   const handleCardClick = (image) => {
     setSelectedImage(image);
     setOpen(true);
@@ -34,6 +36,7 @@ function UserOfferList() {
 
       });
       setImages(imageList);
+ 
     });
 
     // Cleanup function

@@ -18,6 +18,8 @@ function OfferList() {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
 
+  
+  
   const onImageChange = (e) => {
     setImage(e.target.files[0]);
   };
@@ -85,6 +87,7 @@ function OfferList() {
         imageList.push({ id: doc.id, ...doc.data() });
       });
       setImages(imageList);
+ 
     });
 
     // Cleanup function

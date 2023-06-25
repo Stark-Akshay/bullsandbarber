@@ -9,14 +9,14 @@ function PrivacyPolicy() {
             <p className={styles.privacy_title}>PRIVACY POLICY</p>
             <p className={styles.privacy_subtitle}>Last updated June 12, 2023</p>
 
-            <p className={styles.privacy_body_text}>This privacy notice for Bulls and Barber
-                Bulls and Barber, we, us, or our, describes how and why we might collect, store, use and/or share process
+            <p className={styles.privacy_body_text}>This privacy notice for Bulls and Barbers
+                Bulls and Barbers, we, us, or our, describes how and why we might collect, store, use and/or share process
                  your information when you use our services Services, such as when you:
             </p>
 
             <ul className={styles.privacy_ul}>
                 <li><p className={styles.privacy_body_text}>Visit our website at <a href="https://bullsandbarber.vercel.app" className={styles.privacy_link}>Bulls and Barber</a> , or any website of ours that links to this privacy notice </p></li>
-                <li><p className={styles.privacy_body_text}>Download and use our mobile application  Bulls and Barber), or any other application of ours that links to this privacy notice</p></li>
+                <li><p className={styles.privacy_body_text}>Download and use our mobile application  Bulls and Barbers), or any other application of ours that links to this privacy notice</p></li>
                 <li><p className={styles.privacy_body_text}>Engage with us in other related ways, including any sales, marketing, or events</p></li>
             </ul>
 
@@ -50,7 +50,7 @@ function PrivacyPolicy() {
 
             <p className={styles.privacy_title}>How do you exercise your rights? </p>
             <p className={styles.privacy_body_text}>The easiest way to exercise your rights is by submitting a data subject access request, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
-            <p className={styles.privacy_body_text}>Want to learn more about what Bulls and Barber does with any information we collect? Review the privacy notice in full</p>
+            <p className={styles.privacy_body_text}>Want to learn more about what Bulls and Barbers does with any information we collect? Review the privacy notice in full</p>
 
 
             <p className={styles.privacy_heading_1}>TABLE OF CONTENTS</p>
@@ -155,7 +155,7 @@ If you are under 18 years of age, reside in California, and have a registered ac
 
             <p className={styles.privacy_heading_1}>11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</p>
             <p className={styles.privacy_body_text}>If you have questions or comments about this notice, you may email us at <i>TBD</i> or contact us by post at:</p>
-            <p className={styles.privacy_body_text}>Bulls and Barber
+            <p className={styles.privacy_body_text}>Bulls and Barbers
 محمع دبي للإستثمار 1 - Dubai - United Arab Emirates
 __________
 United Arab Emirates</p>

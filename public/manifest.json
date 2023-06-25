@@ -4,7 +4,7 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Bulls and Barber",
+    "name": "Bulls and Barbers",
     "short_name": "B and B",
     "description": "A saloon app",
     "version": "2.0.0",

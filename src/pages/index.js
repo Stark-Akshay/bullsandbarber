@@ -15,7 +15,7 @@ export default function Home() {
     <>
 
     <Head>
-      <title>Bulls and Barber</title>
+      <title>Bulls and Barbers</title>
       <link rel='manifest' href='/manifest.json'/>
     </Head>
       <div className={styles.container}>

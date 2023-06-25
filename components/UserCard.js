@@ -20,6 +20,7 @@ const UserCard = () => {
   const [name, setName] = useState("User");
  
   let books = [];
+
   
   const token = async () => {
     const currentToken = await getToken(messaging, { vapidKey: 'BCOrm48yCZ02KkQ4_HSSb4zxmgEVOG8P2YZCYMj6nBHHP01w5K2K9DKp7z_TaBI2lzxU0ddG2hSLtZfKzsYO6L8' });
@@ -71,6 +72,7 @@ const messaging = getMessaging();
  useEffect(() => {
   token();
     requestPermission();
+ 
  }, []);
 
   useEffect(() => {

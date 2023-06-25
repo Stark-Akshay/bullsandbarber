@@ -63,7 +63,7 @@ export default function NavBarthree() {
           </IconButton>
         )}
         <Typography variant="h6" component="div" sx={{ flexGrow: 1}} className={styles.appbar_text}>
-          Bulls and Barber
+          Bulls and Barbers
         </Typography>
         {!isMobile && (
           <Box sx={{ display: 'flex' }} className={styles.display_onlymob}>
